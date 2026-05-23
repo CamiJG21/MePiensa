@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaynar - Me Piensa</title>
     <style>
-        /* El "look & feel" de la página */
         body {
-            body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             color: #ffffff;
             display: flex;
@@ -33,8 +31,8 @@
             background-image: url('portada.jpg');
             background-size: cover;
             background-position: center;
-            filter: blur(40px) brightness(40%); /* Desenfoca y oscurece un poco para que se lea el texto */
-            transform: scale(1.1); /* Evita bordes blancos por el blur */
+            filter: blur(40px) brightness(40%);
+            transform: scale(1.1);
             z-index: -1;
         }
 
@@ -45,12 +43,61 @@
             width: 100%;
             position: relative;
             z-index: 1;
-            background: rgba(18, 18, 18, 0.4); /* Un toque oscuro transparente detrás del contenido */
+            background: rgba(18, 18, 18, 0.6);
             padding: 25px;
             border-radius: 16px;
-            backdrop-filter: blur(10px); /* Efecto vidrio esmerilado */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-sizing: border-box;
+        }
+
+        /* La Portada */
+        .cover {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        h1 { font-size: 24px; margin: 10px 0 5px 0; letter-spacing: 1px; }
+        h2 { font-size: 16px; color: #a7a7a7; margin: 0 0 25px 0; font-weight: 400; }
+
+        /* El Contador */
+        .countdown {
+            font-size: 20px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        /* Los Botones */
+        .btn-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #282828;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-link:hover {
+            background-color: #3e3e3e;
+            transform: scale(1.02);
+        }
+
+        .btn-spotify { border-left: 5px solid #1DB954; }
+    </style>
+</head>
 <body>
 
     <div class="container">
@@ -65,29 +112,22 @@
             <span>Pre-Save en Spotify</span>
             <span>➔</span>
         </a>
-        
-     
     </div>
 
     <script>
-        // Establece la fecha de lanzamiento (Año, Mes-1, Día, Hora, Minutos)
-        // Nota: Los meses en JavaScript van de 0 a 11 (Mayo es 4)
         const releaseDate = new Date(2026, 4, 24, 0, 0, 0).getTime();
 
         const countdownFunction = setInterval(function() {
             const now = new Date().getTime();
             const distance = releaseDate - now;
 
-            // Cálculos matemáticos para días, horas, minutos y segundos
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Mostrar el resultado en el contenedor con ID "timer"
             document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
-            // Si la cuenta regresiva termina
             if (distance < 0) {
                 clearInterval(countdownFunction);
                 document.getElementById("timer").innerHTML = "¡YA DISPONIBLE!";
