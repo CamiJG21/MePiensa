@@ -96,13 +96,14 @@
             background-image: url('perfil.jpg');
             background-repeat: no-repeat;
 
-            /* 1. CONTROL DE ZOOM: El 170% es el tamaño del zoom. Si quieres más cerca, súbelo (ej. 190%) */
+            /* 1. EVITA LA DISTORSIÓN + ZOOM:
+               Usa 'cover' para que mantenga su proporción original y añade un porcentaje extra para el zoom (ej. 170% cover, 200% cover) */
             background-size: 170% cover; 
 
-            /* 2. CONTROL DE MOVIMIENTO TOTAL: 
-               - El primer número (65%) mueve de Izquierda a Derecha.
-               - El segundo número (20%) mueve de Arriba a Abajo. */
-            background-position: 65% 20%;
+            /* 2. TUS MANDOS DE MOVIMIENTO LIBRE:
+               - El primer porcentaje (65%) mueve de Izquierda a Derecha.
+               - El segundo porcentaje (28%) mueve de Arriba a Abajo. */
+            background-position: 65% 28%;
         }
 
         h1 {
