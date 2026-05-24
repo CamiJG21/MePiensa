@@ -32,7 +32,7 @@
             background-color: var(--background);
         }
 
-        /* Fondo desenfocado dinámico con la foto de perfil (Fire & Ice edition) */
+        /* Fondo desenfocado dinámico con la foto de perfil */
         body::before {
             content: "";
             position: fixed;
@@ -43,7 +43,7 @@
             background-image: url('perfil.jpg');
             background-size: cover;
             background-position: center;
-            filter: blur(50px) brightness(20%) saturate(200%);
+            filter: blur(50px) brightness(20%) saturate(150%);
             transform: scale(1.1);
             z-index: -1;
         }
@@ -71,7 +71,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Borde del Avatar: Naranja (fuego) + Neón Azul (matrícula) */
+        /* Borde del Avatar: FUSIÓN DE AZUL ELÉCTRICO Y FUEGO */
         .avatar-wrapper {
             position: relative;
             width: 120px;
@@ -81,13 +81,13 @@
             box-sizing: border-box;
             background: rgba(0,0,0,0.8);
             
-            /* Borde neón difuminado: Azules y Naranjas */
+            /* Borde difuminado azul y naranja */
             border: 4px solid var(--background);
             box-shadow: 
                 0 0 1px 2px var(--background),
-                0 0 10px rgba(255, 123, 0, 0.4), /* Fuego naranja */
-                0 0 20px rgba(0, 102, 255, 0.6), /* Neón azul */
-                0 0 35px rgba(0, 102, 255, 0.8), 
+                0 0 10px rgba(0, 102, 255, 0.6), /* Azul neón principal */
+                0 0 20px rgba(0, 102, 255, 0.8), 
+                0 0 35px rgba(255, 123, 0, 0.5), /* Fuego naranja secundario */
                 inset 0 0 10px rgba(0, 102, 255, 0.3);
             
             overflow: hidden;
@@ -98,34 +98,33 @@
             0%, 100% {
                 box-shadow: 
                     0 0 1px 2px var(--background),
-                    0 0 10px rgba(255, 123, 0, 0.3),
-                    0 0 20px rgba(0, 102, 255, 0.5),
-                    0 0 30px rgba(0, 102, 255, 0.7);
+                    0 0 10px rgba(0, 102, 255, 0.5),
+                    0 0 20px rgba(0, 102, 255, 0.7),
+                    0 0 30px rgba(255, 123, 0, 0.4);
             }
             50% {
                 box-shadow: 
                     0 0 1px 2px var(--background),
-                    0 0 15px rgba(255, 123, 0, 0.5),
-                    0 0 25px rgba(0, 102, 255, 0.7),
-                    0 0 40px rgba(0, 102, 255, 1);
+                    0 0 15px rgba(0, 102, 255, 0.7),
+                    0 0 25px rgba(0, 102, 255, 0.9),
+                    0 0 40px rgba(255, 123, 0, 0.6);
             }
         }
 
-        /* Avatar: Encuadre Cerrado al Rostro (TRUCO CSS) */
+        /* Avatar con Zoom Cerrado al Rostro */
         .avatar {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
             
-            /* -- AJUSTE DE ZOOM AL ROSTRO -- */
-            transform: scale(1.6); /* Zoom fuerte hacia el centro */
-            object-position: center 30%; /* Ajuste vertical para la cara */
+            /* Zoom fuerte hacia el centro vertical */
+            transform: scale(1.6);
+            object-position: center 30%; 
             
             display: block;
             box-sizing: border-box;
             border: 3px solid var(--background);
-            filter: contrast(110%) saturate(110%);
         }
 
         h1 {
@@ -208,37 +207,37 @@
         .arrow { font-size: 14px; color: #8e8e93; transition: transform 0.3s ease; }
         .btn-link:hover .arrow { transform: translateX(5px); color: #ffffff; }
 
-        /* Destacado: "Me Piensa" (Rojo Fuego con Destello Neón Azul) */
+        /* Destacado: "Me Piensa" con PULSO NEÓN AZUL ELÉCTRICO */
         .btn-featured {
-            background: linear-gradient(135deg, rgba(255, 59, 48, 0.1) 0%, rgba(130, 0, 0, 0.25) 100%);
-            border: 1px solid rgba(255, 59, 48, 0.2);
-            box-shadow: 
-                0 0 10px rgba(255, 59, 48, 0.05),
-                inset 0 0 10px rgba(0, 102, 255, 0.1);
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(255, 59, 48, 0.08) 100%);
+            border: 1px solid rgba(0, 102, 255, 0.2);
             animation: featuredPulse 3.5s infinite;
         }
         
         @keyframes featuredPulse {
             0%, 100% {
+                border-color: rgba(0, 102, 255, 0.2);
                 box-shadow: 
-                    0 0 10px rgba(255, 59, 48, 0.05),
-                    inset 0 0 10px rgba(0, 102, 255, 0.08);
+                    0 0 10px rgba(0, 102, 255, 0.1),
+                    inset 0 0 10px rgba(0, 102, 255, 0.05);
             }
             50% {
+                border-color: rgba(0, 102, 255, 0.4);
                 box-shadow: 
-                    0 0 20px rgba(255, 59, 48, 0.2),
-                    inset 0 0 15px rgba(0, 102, 255, 0.3);
+                    0 0 20px rgba(0, 102, 255, 0.3),
+                    inset 0 0 15px rgba(0, 102, 255, 0.2);
             }
         }
         
         .btn-featured:hover {
-            background: linear-gradient(135deg, rgba(255, 59, 48, 0.25) 0%, rgba(180, 0, 0, 0.35) 100%);
-            border-color: rgba(255, 59, 48, 0.3);
-            box-shadow: 0 10px 25px rgba(255, 59, 48, 0.3);
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.2) 0%, rgba(255, 59, 48, 0.15) 100%);
+            border-color: rgba(0, 102, 255, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.4);
         }
 
-        .btn-featured .btn-icon { color: var(--electric-red); }
+        .btn-featured .btn-icon { color: var(--deep-neon-blue); } /* Icono azul */
 
+        /* Insignia: DEGRADADO DE FUEGO A AZUL */
         .badge-new {
             font-size: 9px;
             font-weight: 800;
@@ -248,12 +247,12 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             
-            /* Fire gradient */
-            background: linear-gradient(135deg, var(--electric-red) 0%, var(--pure-orange) 100%);
+            /* Degradado Fuego a Azul */
+            background: linear-gradient(135deg, var(--pure-orange) 0%, var(--electric-red) 40%, var(--deep-neon-blue) 100%);
             
             box-shadow: 
-                0 0 8px rgba(255, 59, 48, 0.6),
-                0 0 3px rgba(0, 102, 255, 0.2);
+                0 0 8px rgba(255, 59, 48, 0.4),
+                0 0 8px rgba(0, 102, 255, 0.4);
         }
 
         /* Diseños de Bordes y Colores de cada Plataforma */
