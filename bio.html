@@ -3,356 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAYNAR - Official Bio / Links</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Jaynar - Enlaces</title>
     <style>
-        :root {
-            --electric-red: #ff3b30;
-            --deep-neon-blue: #0066ff;
-            --pure-orange: #ff7b00;
-            --background: #060606;
-            --frosted-bg: rgba(10, 10, 10, 0.7);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212;
             color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-            position: relative;
-            overflow-x: hidden;
-            background-color: var(--background);
+            padding: 40px 20px;
         }
 
-        /* Fondo desenfocado dinámico con la foto de perfil */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('perfil.jpg');
-            background-size: cover;
-            background-position: center;
-            filter: blur(50px) brightness(20%) saturate(150%);
-            transform: scale(1.1);
-            z-index: -1;
-        }
-
-        /* Contenedor principal estilo frosted glass */
         .container {
-            text-align: center;
-            max-width: 420px;
             width: 100%;
-            position: relative;
-            z-index: 1;
-            background: var(--frosted-bg);
-            padding: 35px 25px;
-            border-radius: 32px;
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-            box-sizing: border-box;
-            animation: fadeIn 0.8s ease-out;
+            max-width: 400px;
+            background-color: #1a1a1a;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .profile-container {
+            position: relative;
+            margin-bottom: 25px;
         }
 
-        /* Borde del Avatar: FUSIÓN DE AZUL ELÉCTRICO Y FUEGO */
-        .avatar-wrapper {
-            position: relative;
+        .profile-img {
             width: 120px;
             height: 120px;
-            margin: 0 auto 25px auto;
-            border-radius: 50%;
-            box-sizing: border-box;
-            background: rgba(0,0,0,0.8);
-            
-            /* Borde difuminado azul y naranja */
-            border: 4px solid var(--background);
-            box-shadow: 
-                0 0 1px 2px var(--background),
-                0 0 10px rgba(0, 102, 255, 0.6), /* Azul neón principal */
-                0 0 20px rgba(0, 102, 255, 0.8), 
-                0 0 35px rgba(255, 123, 0, 0.5), /* Fuego naranja secundario */
-                inset 0 0 10px rgba(0, 102, 255, 0.3);
-            
-            overflow: hidden;
-            animation: auraPulse 4s infinite;
-        }
-
-        @keyframes auraPulse {
-            0%, 100% {
-                box-shadow: 
-                    0 0 1px 2px var(--background),
-                    0 0 10px rgba(0, 102, 255, 0.5),
-                    0 0 20px rgba(0, 102, 255, 0.7),
-                    0 0 30px rgba(255, 123, 0, 0.4);
-            }
-            50% {
-                box-shadow: 
-                    0 0 1px 2px var(--background),
-                    0 0 15px rgba(0, 102, 255, 0.7),
-                    0 0 25px rgba(0, 102, 255, 0.9),
-                    0 0 40px rgba(255, 123, 0, 0.6);
-            }
-        }
-
-        /* Avatar con Zoom Cerrado al Rostro */
-        .avatar {
-            width: 100%;
-            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            
-            /* Zoom fuerte hacia el centro vertical */
-            transform: scale(1.6);
-            object-position: center 30%; 
-            
-            display: block;
-            box-sizing: border-box;
-            border: 3px solid var(--background);
+            object-position: center 25%; /* Ajuste para centrar el rostro */
+            border: 4px solid transparent; /* Para el gradiente del borde */
+            background-image: linear-gradient(#1a1a1a, #1a1a1a), linear-gradient(135deg, #00c6ff, #0072ff);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+        }
+
+        .glow {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: #ff3b30; /* Luz roja en el gorro */
+            border-radius: 50%;
+            filter: blur(8px);
+            opacity: 0.8;
         }
 
         h1 {
-            font-size: 30px;
-            font-weight: 800;
-            margin: 0 0 6px 0;
-            letter-spacing: 2px;
-            color: #ffffff;
-            text-transform: uppercase;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-align: center;
         }
 
-        h2 {
+        .subtitle {
             font-size: 14px;
-            color: var(--electric-red);
-            margin: 0 0 35px 0;
-            font-weight: 600;
-            letter-spacing: 3px;
+            color: #ff3b30; /* Texto rojo */
             text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
-        /* Enlaces / Botones de plataformas */
-        .links-wrapper {
+        .links-container {
+            width: 100%;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin-bottom: 20px;
         }
 
-        .btn-link {
+        .link-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: rgba(255, 255, 255, 0.03);
-            color: #ffffff;
             text-decoration: none;
-            padding: 16px 20px;
-            border-radius: 18px;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: 1px solid rgba(255, 255, 255, 0.02);
+            color: #ffffff;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-sizing: border-box;
         }
 
-        .btn-link:hover {
-            background-color: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px) scale(1.01);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .link-card:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
         }
 
-        .btn-link:active { transform: translateY(0); }
+        .link-card.new-single {
+            border: 2px solid rgba(0, 114, 255, 0.3); /* Borde azul suave */
+            box-shadow: 0 0 20px rgba(0, 114, 255, 0.2); /* Resplandor azul */
+        }
 
-        .btn-content {
+        .link-card.new-single:hover {
+            box-shadow: 0 0 30px rgba(0, 114, 255, 0.4);
+        }
+
+        .card-content {
             display: flex;
             align-items: center;
             gap: 15px;
-            text-align: left;
         }
 
-        .btn-icon {
-            width: 24px; height: 24px;
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
-            color: #b0b0b0;
+        .cover-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
         }
 
-        .btn-text { display: flex; flex-direction: column; }
-
-        .platform-name {
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.2;
-            display: flex; align-items: center; gap: 9px;
+        .text-info {
+            display: flex;
+            flex-direction: column;
         }
 
-        .platform-action { font-size: 11px; color: #a7a7a7; font-weight: 400; margin-top: 2px; }
-
-        .arrow { font-size: 14px; color: #8e8e93; transition: transform 0.3s ease; }
-        .btn-link:hover .arrow { transform: translateX(5px); color: #ffffff; }
-
-        /* Destacado: "Me Piensa" con PULSO NEÓN AZUL ELÉCTRICO */
-        .btn-featured {
-            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(255, 59, 48, 0.08) 100%);
-            border: 1px solid rgba(0, 102, 255, 0.2);
-            animation: featuredPulse 3.5s infinite;
-        }
-        
-        @keyframes featuredPulse {
-            0%, 100% {
-                border-color: rgba(0, 102, 255, 0.2);
-                box-shadow: 
-                    0 0 10px rgba(0, 102, 255, 0.1),
-                    inset 0 0 10px rgba(0, 102, 255, 0.05);
-            }
-            50% {
-                border-color: rgba(0, 102, 255, 0.4);
-                box-shadow: 
-                    0 0 20px rgba(0, 102, 255, 0.3),
-                    inset 0 0 15px rgba(0, 102, 255, 0.2);
-            }
-        }
-        
-        .btn-featured:hover {
-            background: linear-gradient(135deg, rgba(0, 102, 255, 0.2) 0%, rgba(255, 59, 48, 0.15) 100%);
-            border-color: rgba(0, 102, 255, 0.5);
-            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.4);
+        .title-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .btn-featured .btn-icon { color: var(--deep-neon-blue); } /* Icono azul */
-
-        /* Insignia: DEGRADADO DE FUEGO A AZUL */
-        .badge-new {
-            font-size: 9px;
-            font-weight: 800;
+        .badge {
+            background-color: #0072ff; /* Badge azul */
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
             padding: 3px 8px;
             border-radius: 20px;
-            color: #ffffff;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            
-            /* Degradado Fuego a Azul */
-            background: linear-gradient(135deg, var(--pure-orange) 0%, var(--electric-red) 40%, var(--deep-neon-blue) 100%);
-            
-            box-shadow: 
-                0 0 8px rgba(255, 59, 48, 0.4),
-                0 0 8px rgba(0, 102, 255, 0.4);
         }
 
-        /* Diseños de Bordes y Colores de cada Plataforma */
-        .btn-spotify { border-left: 4px solid #1DB954; }
-        .btn-spotify:hover { box-shadow: 0 8px 24px rgba(29, 185, 84, 0.1); }
-        .btn-spotify .btn-icon { color: #1DB954; }
+        .link-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
 
-        .btn-apple { border-left: 4px solid #fc3c44; }
-        .btn-apple:hover { box-shadow: 0 8px 24px rgba(252, 60, 68, 0.1); }
-        .btn-apple .btn-icon { color: #fc3c44; }
+        .link-desc {
+            font-size: 12px;
+            color: #a0a0a0;
+            margin-top: 3px;
+        }
 
-        .btn-youtube { border-left: 4px solid #ff0000; }
-        .btn-youtube:hover { box-shadow: 0 8px 24px rgba(255, 0, 0, 0.1); }
-        .btn-youtube .btn-icon { color: #ff0000; }
+        .arrow {
+            font-size: 18px;
+            color: #505050;
+        }
 
         .footer {
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.25);
-            margin-top: 35px;
-            letter-spacing: 0.5px;
+            margin-top: 40px;
+            font-size: 12px;
+            color: #505050;
+            text-align: center;
         }
+
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="avatar-wrapper">
-            <img src="perfil.jpg" alt="JAYNAR Perfil" class="avatar">
+        <div class="profile-container">
+            <div class="glow"></div>
+            <img src="perfil.jpg" alt="Jaynar" class="profile-img">
         </div>
-        
+
         <h1>JAYNAR</h1>
-        <h2>Artista / Productor</h2>
+        <p class="subtitle">ARTISTA / PRODUCTOR</p>
 
-        <div class="links-wrapper">
-            <a href="links.html" class="btn-link btn-featured">
-                <div class="btn-content">
-                    <div class="btn-icon">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                    </div>
-                    <div class="btn-text">
-                        <span class="platform-name">Me Piensa <span class="badge-new">Nuevo Sencillo</span></span>
-                        <span class="platform-action">Escucha la nueva canción aquí</span>
+        <div class="links-container">
+            <a href="https://tupagina.com/me-piensa" class="link-card new-single" target="_blank">
+                <div class="card-content">
+                    <img src="me_piensa_cover.jpg" alt="Me Piensa" class="cover-img">
+                    <div class="text-info">
+                        <div class="title-row">
+                            <span class="badge">NUEVO SENCILLO</span>
+                            <p class="link-title">Me Piensa</p>
+                        </div>
+                        <p class="link-desc">Escucha la nueva canción aquí</p>
                     </div>
                 </div>
-                <span class="arrow">➔</span>
+                <div class="arrow">→</div>
             </a>
 
-            <a href="https://open.spotify.com/intl-es/artist/4UQgCKFZuymB2V9tLy6d69?si=rpmtsbbvSaWfP_tkXWLjIw" target="_blank" class="btn-link btn-spotify">
-                <div class="btn-content">
-                    <div class="btn-icon">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.67-.136-.746-.472-.077-.336.135-.67.472-.745 3.847-.878 7.14-.51 9.82 1.13.296.18.387.563.207.862zm1.226-2.723c-.226.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.076-1.183-.412.125-.845-.108-.97-.52-.125-.413.108-.847.52-.972 3.665-1.112 8.233-.574 11.34 1.34.367.227.487.708.26 1.075zm.106-2.825C14.364 8.78 8.423 8.58 4.975 9.626a.997.997 0 0 1-1.21-.714.996.996 0 0 1 .715-1.211c3.955-1.2 10.514-.973 14.61 1.46.402.24.534.76.294 1.162a.993.993 0 0 1-1.472.293z"/>
-                        </svg>
-                    </div>
-                    <div class="btn-text">
-                        <span class="platform-name">Spotify</span>
-                        <span class="platform-action">Seguir Perfil Oficial</span>
+            <a href="https://open.spotify.com/artist/tu_id_de_artista" class="link-card" target="_blank">
+                <div class="card-content">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" class="cover-img" style="filter: brightness(0) invert(1);">
+                    <div class="text-info">
+                        <p class="link-title">Spotify</p>
+                        <p class="link-desc">Escuchar en Spotify</p>
                     </div>
                 </div>
-                <span class="arrow">➔</span>
+                <div class="arrow">→</div>
             </a>
 
-            <a href="https://music.apple.com/mx/artist/jaynar/6770771560" target="_blank" class="btn-link btn-apple">
-                <div class="btn-content">
-                    <div class="btn-icon">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.21.67-2.93 1.49-.62.69-1.16 1.84-1.01 2.96 1.12.09 2.27-.57 2.95-1.39z"/>
-                        </svg>
-                    </div>
-                    <div class="btn-text">
-                        <span class="platform-name">Apple Music</span>
-                        <span class="platform-action">Escuchar Catálogo</span>
+            <a href="https://music.apple.com/artist/tu_id_de_artista" class="link-card" target="_blank">
+                <div class="card-content">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_Music_logo.svg" alt="Apple Music" class="cover-img">
+                    <div class="text-info">
+                        <p class="link-title">Apple Music</p>
+                        <p class="link-desc">Escuchar en Apple Music</p>
                     </div>
                 </div>
-                <span class="arrow">➔</span>
+                <div class="arrow">→</div>
             </a>
 
-            <a href="https://www.youtube.com/channel/UCYe9JlDEr4XJhjRmTqFjg4A" target="_blank" class="btn-link btn-youtube">
-                <div class="btn-content">
-                    <div class="btn-icon">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                            <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </div>
-                    <div class="btn-text">
-                        <span class="platform-name">YouTube</span>
-                        <span class="platform-action">Suscribirse al Canal</span>
+            <a href="https://www.youtube.com/@tucanal" class="link-card" target="_blank">
+                <div class="card-content">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.svg" alt="YouTube" class="cover-img">
+                    <div class="text-info">
+                        <p class="link-title">YouTube</p>
+                        <p class="link-desc">Ver en YouTube</p>
                     </div>
                 </div>
-                <span class="arrow">➔</span>
+                <div class="arrow">→</div>
             </a>
-        </div>
-
-        <div class="footer">
-            © 2026 JAYNAR. Todos los derechos reservados.
         </div>
     </div>
+
+    <p class="footer">&copy; 2026 JAYNAR. Todos los derechos reservados.</p>
 
 </body>
 </html>
