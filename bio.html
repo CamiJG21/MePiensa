@@ -70,7 +70,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Borde del Avatar: Combinación Azul Eléctrico y Destello Fuego */
+        /* Borde del Avatar: Fusión Azul y Fuego */
         .avatar-wrapper {
             position: relative;
             width: 115px;
@@ -80,13 +80,12 @@
             padding: 4px;
             background: linear-gradient(135deg, var(--deep-neon-blue) 0%, #00d2ff 50%, var(--pure-orange) 100%);
             box-shadow: 0 0 20px rgba(0, 102, 255, 0.6);
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* TU ENCUADRE ORIGINAL (EL QUE SÍ FUNCIONABA PERFECTO) */
+        /* 🛠️ FIJADO DE IMAGEN: PROPORCIÓN PROTEGIDA */
         .avatar {
             width: 100%;
             height: 100%;
@@ -96,14 +95,11 @@
             background-image: url('perfil.jpg');
             background-repeat: no-repeat;
 
-            /* 1. EVITA LA DISTORSIÓN + ZOOM:
-               Usa 'cover' para que mantenga su proporción original y añade un porcentaje extra para el zoom (ej. 170% cover, 200% cover) */
-            background-size: 170% ; 
+            /* SOLUCIÓN: Solo el porcentaje para que no se deforme el rostro */
+            background-size: 170%; 
 
-            /* 2. TUS MANDOS DE MOVIMIENTO LIBRE:
-               - El primer porcentaje (65%) mueve de Izquierda a Derecha.
-               - El segundo porcentaje (28%) mueve de Arriba a Abajo. */
-            background-position: 65% 28%;
+            /* Ajuste inicial para encuadrar la cara al centro */
+            background-position: 63% 38%;
         }
 
         h1 {
@@ -268,7 +264,7 @@
 
     <div class="container">
         <div class="avatar-wrapper">
-            <img src="perfil.jpg" alt="Jaynar Perfil" class="avatar">
+            <div class="avatar"></div>
         </div>
         
         <h1>JAYNAR</h1>
