@@ -3,239 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaynar - Enlaces</title>
+    <title>JAYNAR - Official Bio / Links</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --deep-neon-blue: #0066ff;
+            --pure-orange: #ff7b00;
+            --background: #060606;
+            --frosted-bg: rgba(18, 18, 18, 0.65);
         }
 
         body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #121212;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
-            padding: 40px 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 400px;
-            background-color: #1a1a1a;
-            border-radius: 20px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .profile-container {
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
             position: relative;
-            margin-bottom: 25px;
+            overflow-x: hidden;
+            background-color: var(--background);
         }
 
-        .profile-img {
-            width: 120px;
-            height: 120px;
+        /* Fondo desenfocado dinámico con la foto de perfil */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('perfil.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(50px) brightness(25%) saturate(150%);
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+        /* Contenedor principal estilo frosted glass original */
+        .container {
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            background: var(--frosted-bg);
+            padding: 35px 25px 25px 25px;
+            border-radius: 28px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Borde del Avatar: Combinación Azul Eléctrico y Destello Fuego */
+        .avatar-wrapper {
+            position: relative;
+            width: 115px;
+            height: 115px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, var(--deep-neon-blue) 0%, #00d2ff 50%, var(--pure-orange) 100%);
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.6);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ZOOM MÁXIMO EN EL ROSTRO Y TOTALMENTE CENTRADO */
+        .avatar {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            object-position: center 25%; /* Ajuste para centrar el rostro */
-            border: 4px solid transparent; /* Para el gradiente del borde */
-            background-image: linear-gradient(#1a1a1a, #1a1a1a), linear-gradient(135deg, #00c6ff, #0072ff);
-            background-origin: border-box;
-            background-clip: content-box, border-box;
-        }
-
-        .glow {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background-color: #ff3b30; /* Luz roja en el gorro */
-            border-radius: 50%;
-            filter: blur(8px);
-            opacity: 0.8;
+            transform: scale(2.2); /* Zoom súper cerca al rostro */
+            object-position: center 32%; /* Sube el encuadre para centrar los lentes/cara */
+            border: 3px solid #121212;
+            display: block;
+            box-sizing: border-box;
         }
 
         h1 {
             font-size: 28px;
             font-weight: 700;
-            margin-bottom: 5px;
-            text-align: center;
+            margin: 0 0 6px 0;
+            letter-spacing: 1px;
+            background: linear-gradient(180deg, #ffffff 0%, #e0e0e0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .subtitle {
+        /* CAMBIO A TEXTO NEGRO SOLICITADO */
+        h2 {
             font-size: 14px;
-            color: #ff3b30; /* Texto rojo */
-            text-transform: uppercase;
+            color: #000000; 
+            margin: 0 0 30px 0;
+            font-weight: 800; /* Más grueso para que resalte */
             letter-spacing: 2px;
-            margin-bottom: 30px;
-            text-align: center;
+            text-transform: uppercase;
         }
 
-        .links-container {
-            width: 100%;
+        /* Enlaces / Botones de plataformas originales */
+        .links-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
+            margin-bottom: 20px;
         }
 
-        .link-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 20px;
+        .btn-link {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.04);
             color: #ffffff;
-            transition: all 0.3s ease;
+            text-decoration: none;
+            padding: 15px 18px;
+            border-radius: 16px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid rgba(255, 255, 255, 0.03);
             position: relative;
             overflow: hidden;
         }
 
-        .link-card:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+        .btn-link:hover {
+            background-color: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.12);
             transform: translateY(-2px);
         }
 
-        .link-card.new-single {
-            border: 2px solid rgba(0, 114, 255, 0.3); /* Borde azul suave */
-            box-shadow: 0 0 20px rgba(0, 114, 255, 0.2); /* Resplandor azul */
-        }
-
-        .link-card.new-single:hover {
-            box-shadow: 0 0 30px rgba(0, 114, 255, 0.4);
-        }
-
-        .card-content {
+        .btn-content {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
+            text-align: left;
         }
 
-        .cover-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-            object-fit: cover;
+        .btn-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
-        .text-info {
+        .btn-text {
             display: flex;
             flex-direction: column;
         }
 
-        .title-row {
+        .platform-name {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.2;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .badge {
-            background-color: #0072ff; /* Badge azul */
-            color: #ffffff;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 3px 8px;
-            border-radius: 20px;
-        }
-
-        .link-title {
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .link-desc {
-            font-size: 12px;
-            color: #a0a0a0;
-            margin-top: 3px;
+        .platform-action {
+            font-size: 11px;
+            color: #a7a7a7;
+            font-weight: 400;
+            margin-top: 2px;
         }
 
         .arrow {
-            font-size: 18px;
-            color: #505050;
+            font-size: 13px;
+            color: #8e8e93;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
+
+        .btn-link:hover .arrow {
+            transform: translateX(4px);
+            color: #ffffff;
+        }
+
+        /* Destacado: "Me Piensa" en Tonos Azul Matrícula */
+        .btn-featured {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(0, 40, 150, 0.25) 100%);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+        
+        .btn-featured:hover {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.25) 0%, rgba(0, 60, 200, 0.35) 100%);
+            border-color: rgba(0, 102, 255, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.4);
+        }
+
+        .btn-featured .btn-icon {
+            color: #00d2ff;
+        }
+
+        /* Insignia con los colores de la matrícula */
+        .badge-new {
+            font-size: 9px;
+            background: linear-gradient(135deg, var(--deep-neon-blue) 0%, var(--pure-orange) 100%);
+            padding: 3px 7px;
+            border-radius: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 0 8px rgba(0, 102, 255, 0.5);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(0, 102, 255, 0.15); }
+            50% { box-shadow: 0 0 25px rgba(0, 102, 255, 0.35); }
+        }
+
+        /* Bordes de las Plataformas */
+        .btn-spotify { border-left: 4px solid #1DB954; }
+        .btn-spotify:hover { box-shadow: 0 8px 24px rgba(29, 185, 84, 0.12); }
+        .btn-spotify .btn-icon { color: #1DB954; }
+
+        .btn-apple { border-left: 4px solid #fc3c44; }
+        .btn-apple:hover { box-shadow: 0 8px 24px rgba(252, 60, 68, 0.12); }
+        .btn-apple .btn-icon { color: #fc3c44; }
+
+        .btn-youtube { border-left: 4px solid #ff0000; }
+        .btn-youtube:hover { box-shadow: 0 8px 24px rgba(255, 0, 0, 0.12); }
+        .btn-youtube .btn-icon { color: #ff0000; }
 
         .footer {
-            margin-top: 40px;
-            font-size: 12px;
-            color: #505050;
-            text-align: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            margin-top: 30px;
+            letter-spacing: 0.5px;
         }
-
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="profile-container">
-            <div class="glow"></div>
-            <img src="perfil.jpg" alt="Jaynar" class="profile-img">
+        <div class="avatar-wrapper">
+            <img src="perfil.jpg" alt="Jaynar Perfil" class="avatar">
         </div>
-
+        
         <h1>JAYNAR</h1>
-        <p class="subtitle">ARTISTA / PRODUCTOR</p>
+        <h2>Artista / Productor</h2>
 
-        <div class="links-container">
-            <a href="https://tupagina.com/me-piensa" class="link-card new-single" target="_blank">
-                <div class="card-content">
-                    <img src="me_piensa_cover.jpg" alt="Me Piensa" class="cover-img">
-                    <div class="text-info">
-                        <div class="title-row">
-                            <span class="badge">NUEVO SENCILLO</span>
-                            <p class="link-title">Me Piensa</p>
-                        </div>
-                        <p class="link-desc">Escucha la nueva canción aquí</p>
+        <div class="links-wrapper">
+            <a href="links.html" class="btn-link btn-featured">
+                <div class="btn-content">
+                    <div class="btn-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="btn-text">
+                        <span class="platform-name">Me Piensa <span class="badge-new">Nuevo Sencillo</span></span>
+                        <span class="platform-action">Escucha la nueva canción aquí</span>
                     </div>
                 </div>
-                <div class="arrow">→</div>
+                <span class="arrow">➔</span>
             </a>
-
-            <a href="https://open.spotify.com/artist/tu_id_de_artista" class="link-card" target="_blank">
-                <div class="card-content">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" class="cover-img" style="filter: brightness(0) invert(1);">
-                    <div class="text-info">
-                        <p class="link-title">Spotify</p>
-                        <p class="link-desc">Escuchar en Spotify</p>
-                    </div>
-                </div>
-                <div class="arrow">→</div>
-            </a>
-
-            <a href="https://music.apple.com/artist/tu_id_de_artista" class="link-card" target="_blank">
-                <div class="card-content">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_Music_logo.svg" alt="Apple Music" class="cover-img">
-                    <div class="text-info">
-                        <p class="link-title">Apple Music</p>
-                        <p class="link-desc">Escuchar en Apple Music</p>
-                    </div>
-                </div>
-                <div class="arrow">→</div>
-            </a>
-
-            <a href="https://www.youtube.com/@tucanal" class="link-card" target="_blank">
-                <div class="card-content">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.svg" alt="YouTube" class="cover-img">
-                    <div class="text-info">
-                        <p class="link-title">YouTube</p>
-                        <p class="link-desc">Ver en YouTube</p>
-                    </div>
-                </div>
-                <div class="arrow">→</div>
-            </a>
-        </div>
-    </div>
-
-    <p class="footer">&copy; 2026 JAYNAR. Todos los derechos reservados.</p>
-
-</body>
-</html>
+            
